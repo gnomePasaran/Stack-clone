@@ -1,0 +1,4 @@
+div class="#{object.class.name.downcase}_errors"
+  - if object.errors.any?
+    - object.errors.full_messages.each do |error|
+      p = error

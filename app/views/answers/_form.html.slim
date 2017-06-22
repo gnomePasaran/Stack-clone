@@ -1,0 +1,9 @@
+.answer_form_wrapper class="#{answer.new_record? ? 'new_answer_wrapper' : ''}"
+  = render 'shared/errors', object: answer
+  = form_for [@question, answer], remote: true do |f|
+    = label_tag "form_#{dom_id(answer)}", 'Answer'
+    = f.text_area :body, id: "form_#{dom_id(answer)}"
+
+    = render 'attachments/form', f: f
+
+    = f.submit answer.new_record? ? 'Submit answer' : 'Update answer', class: 'button'

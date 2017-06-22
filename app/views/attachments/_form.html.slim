@@ -1,0 +1,6 @@
+.attachments
+  - f.object.attachments.build if f.object.new_record?
+  = f.fields_for :attachments do |a|
+    = render 'attachments/attachment_fields', f: a
+  .add-file
+    = link_to_add_association 'add file', f, :attachments, partial: 'attachments/attachment_fields'

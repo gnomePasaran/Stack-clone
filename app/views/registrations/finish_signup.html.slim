@@ -1,0 +1,11 @@
+h1 Almost there
+
+p Please enter your email address to continue registration
+
+= render 'shared/errors', object: @user if @user.present?
+
+= form_for :user, url: send_confirmation_email_path, method: :patch do |f|
+  = label_tag :email
+  = email_field_tag :email, params[:email]
+
+  = submit_tag 'Continue', class: 'button'

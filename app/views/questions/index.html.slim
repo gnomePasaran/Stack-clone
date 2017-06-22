@@ -1,0 +1,4 @@
+h1 Top Questions
+.questions data-questions-channel='true'
+  - @questions.each do |question|
+    = render 'questions/question_teaser', question: question

@@ -1,0 +1,41 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - !ruby/regexp /(vendor|bundle|bin|db)\/.*/
+    - 'public/uploads/**/*'
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  TargetRubyVersion: 2.3
+
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 155
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+
+Metrics/AbcSize:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Exclude:
+    - 'spec/models/concerns/**/*'
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/api/**/*'

@@ -1,0 +1,13 @@
+.votes
+  p
+    | Score
+    '
+    span.score 0
+
+  - if gon.user_id != @votable.user_id
+    p.vote-change
+      a.voting href="#{@path}/vote_up" data-remote="true" data-method="post" Vote up
+    p.vote-change
+      a.voting href="#{@path}/vote_down" data-remote="true" data-method="post" Vote down
+    p.vote-remove style="display: hidden;"
+      a.voting href="#{@path}/cancel_vote" data-remote="true" data-method="post" Remove vote

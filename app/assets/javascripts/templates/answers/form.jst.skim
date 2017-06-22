@@ -1,0 +1,11 @@
+.answer_form_wrapper
+  .answer_errors
+
+  form.edit_answer id="edit_answer_#{@id}" action="/questions/#{@question_id}/answers/#{@id}" data-remote="true" method="post" accepts-charset="UTF-8"
+    input name="utf8" type="hidden" value="✓"
+    input type="hidden" name="_method" value="patch"
+
+    label for="form_edit_answer_#{@id}" Answer
+    textarea id="form_edit_answer_#{@id}" name="answer[body]"
+
+    input type="submit" name="commit" value="Update answer"

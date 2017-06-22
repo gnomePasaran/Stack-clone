@@ -1,0 +1,6 @@
+div id="#{dom_id(@question)}"
+  - cache @question do
+    h1 = @question.title
+    p = @question.body
+
+  = render 'shared/vote_actions', votable: @question, path_args: @question

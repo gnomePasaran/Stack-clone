@@ -1,0 +1,8 @@
+en:
+  question_mailer:
+    digest:
+      subject: "Daily Questions Digest"
+    new_answer:
+      subject: "New answer for question \"%{question_title}\""
+    update:
+      subject: "Question updated: %{question_title}"

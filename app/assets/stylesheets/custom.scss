@@ -1,0 +1,46 @@
+.question_form_wrapper {
+  display: none;
+}
+
+.answers .answer_form_wrapper {
+  display: none;
+}
+
+.comment-form {
+  display: none;
+}
+
+.vote-remove {
+  display: none
+}
+
+.voted {
+  .vote-change {
+    display: none;
+  }
+  .vote-remove {
+    display: block;
+  }
+}
+
+.subscription.unsubscribe {
+  display: none;
+}
+
+.subscribed {
+  .subscription.subscribe {
+    display: none;
+  }
+  .subscription.unsubscribe {
+    display: block;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.top-bar-right select {
+  margin: 0;
+  margin: 0;
+}

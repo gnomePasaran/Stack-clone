@@ -1,0 +1,5 @@
+<% if @question.errors.any? %>
+  $('.question_errors').replaceWith('<%= j render 'shared/errors', object: @question %>');
+<% else %>
+  $('.question_wrapper').html('<%= j render @question %>');
+<% end %>

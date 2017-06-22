@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: stackoverflow_clone_development
+
+test:
+  <<: *default
+  database: stackoverflow_clone_test<%= ENV['TEST_ENV_NUMBER'] %>
+
+production:
+  <<: *default
+  database: stackoverflow_clone_production
+  username: stackoverflow_clone
+  password: <%= ENV['STACKOVERFLOW_CLONE_DATABASE_PASSWORD'] %>

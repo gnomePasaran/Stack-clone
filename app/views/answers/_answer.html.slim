@@ -1,0 +1,22 @@
+- if answer.persisted?
+  .answer id="#{dom_id(answer)}"
+    = render 'shared/vote_actions', votable: answer, path_args: [answer.question, answer]
+    - cache answer do
+      .body = answer.body
+      = render answer.attachments
+
+    - if policy(answer).destroy?
+      p = link_to 'Delete', question_answer_path(answer.question, answer), method: :delete, remote: true, class: 'delete-answer'
+      p = link_to 'Edit', '#', class: 'answer-edit-form-trigger', data: { answer_id: answer.id }
+
+    - if answer.accepted?
+      p Accepted answer
+      - if policy(answer).accept?
+        = link_to 'Do not accept this answer', accept_question_answer_path(answer.question, answer), method: :post
+    - elsif policy(answer).accept?
+      = link_to 'Accept answer', accept_question_answer_path(answer.question, answer), method: :post
+
+    - if policy(answer).update?
+      = render 'answers/form', answer: answer
+
+    = render 'comments/comments', commentable: answer, path_args: [answer.question, answer]

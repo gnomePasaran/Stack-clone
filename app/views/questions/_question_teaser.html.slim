@@ -1,0 +1,11 @@
+.row
+  .small-1.columns.text-center
+    = question.vote_score
+    br
+    | votes
+  .small-1.columns.text-center
+    = question.answers.size
+    br
+    | answers
+  .small-10.columns
+    h3 = link_to question.title, question

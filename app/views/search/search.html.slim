@@ -1,0 +1,4 @@
+h1 Search results
+- @results.each do |result|
+  .row
+    = render "#{result.class.name.pluralize.underscore}/search_snippet", resource: result

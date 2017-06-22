@@ -1,0 +1,12 @@
+.answer id="answer_#{@id}"
+  .body = @body
+
+  == JST["templates/shared/vote_actions"]({votable: @, path: "/questions/#{@question_id}/answers/#{@id}"})
+
+  - if gon.user_id == @user_id
+    p
+      a.delete-answer href="/questions/#{@question_id}/answers/#{@id}" data-method="delete" data-remote="true" Delete
+    p
+      a.answer-edit-form-trigger href="#" data-answer-id="#{@id}" Edit
+
+    == JST["templates/answers/form"](@)

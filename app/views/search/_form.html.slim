@@ -1,0 +1,6 @@
+= form_tag search_path, method: :get do
+  ul.menu
+    li = text_field_tag 'search_query', params[:search_query], type: 'search', placeholder: 'Search'
+    li
+      = select_tag 'search_type', options_for_select(Search::SEARCH_TYPES, params[:search_type] || 'all')
+    li = submit_tag 'Search', class: 'button'

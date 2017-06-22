@@ -1,0 +1,16 @@
+.votes class="#{policy(votable).vote? && votable.voted_by?(current_user) ? 'voted' : ''}"
+  p
+    | Score
+    '
+    span.score #{votable.vote_score}
+
+  - if policy(votable).vote?
+    p.vote-remove
+      = link_to 'Remove vote', polymorphic_path([:cancel_vote, path_args].flatten), \
+        method: :post, remote: true, data: {type: :json}, class: 'voting'
+    p.vote-change
+      = link_to 'Vote up', polymorphic_path([:vote_up, path_args].flatten), \
+        method: :post, remote: true, data: {type: :json}, class: 'voting'
+    p.vote-change
+      = link_to 'Vote down', polymorphic_path([:vote_down, path_args].flatten), \
+        method: :post, remote: true, data: {type: :json}, class: 'voting'

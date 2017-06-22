@@ -1,0 +1,17 @@
+.comments id="#{dom_id(commentable)}_comments"
+  - if policy(commentable).create?
+    = link_to 'add a comment', '#', class: 'open-comment-form'
+
+    - cache ['comments-form', commentable] do
+      .comment-form
+        .comment_errors
+        - params = {commentable: commentable.class.name.underscore, commentable_id: commentable}
+        = form_for commentable.comments.build, \
+        url: polymorphic_path(path_args.push(:comments)), remote: true do |f|
+
+          = f.label :body, 'Comment'
+          = f.text_area :body
+          = f.submit 'Add Comment', class: 'button'
+
+  - cache ['comments', commentable] do
+    = render commentable.comments
